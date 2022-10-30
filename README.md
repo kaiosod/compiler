@@ -34,5 +34,13 @@ helloWorld():
   show('Hello World');
 ```
 
+### Comentários
+Comentários são importantes para indicar o que o trecho de código faz, documentação e outras, para comentar um código, basta colocar os simbolos // antes do comentário.
+
+#### Exemplo
+```
+printName():
+//  show('Mali'); -> Trecho comentado
+```
 ## Hello World
 show('Hello World')
