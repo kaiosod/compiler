@@ -15,13 +15,13 @@ Linguagem tipada e estruturada, onde a mesma pode ter dois tipos de váriaveis e
 liter -> Declara um conjunto de caracteres
 
 #### Exemplo
-```
+```js
 liter name = 'Mali'
 ```
 numb -> Declara um numeral, podendo ser um numeral real ou inteiro
 
 #### Exemplo
-```
+```js
 numb year = 2022
 ```
 ### Funções
@@ -29,7 +29,7 @@ numb year = 2022
 A linguagem apresenta o conceito de funções. Funções são blocos de código que se propõe a realizar algum tipo de tarefa, podendo ser obtenção ou alteração de um valor específico ou um simples show.
 
 #### Exemplo
-```
+```js
 helloWorld():
   show('Hello World');
 ```
@@ -38,7 +38,7 @@ helloWorld():
 Comentários são importantes para indicar o que o trecho de código faz, documentação e outras, para comentar um código, basta colocar os simbolos // antes do comentário.
 
 #### Exemplo
-```
+```js
 printName():
 //  show('Mali'); -> Trecho comentado
 ```
