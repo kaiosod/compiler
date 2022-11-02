@@ -1,28 +1,28 @@
 # Compilador
-# Nome da linguagem: Mali
+#  Nome da linguagem: Mali
 
-## Objetivos
+##  :dart: Objetivos
 
 ### Idéia da criação
 Criação de uma linguagem para aprendizado que seja de fácil acesso no começo, e após isso dê ferramentas mais completas.
 
-## Documentação
+## :page_with_curl: Documentação
 
 A especificação da linguagem está documentada no wiki do GitHub
 
-## Características
+## :key: Características
 
 **Linguagem tipada** e **estruturada**, onde a mesma pode ter dois tipos de váriaveis e pode ser divida em pequenos blocos.
 
-## Introdução rápida sobre a linguagem
+## :triangular_flag_on_post: Introdução rápida sobre a linguagem
 
-### Hello World
+### :pushpin: Hello World
 
 ```js
 show('Hello World')
 ```
 
-### Tipagem
+### :pushpin: Tipagem
 
 liter -> Declara um conjunto de caracteres
 
@@ -45,7 +45,7 @@ boole -> representa o tipo boleano ou seja uma condição binaria que no caso da
 boole x = true
 boole y = false
 ```
-### Funções
+### :pushpin: Funções
 
 A linguagem apresenta o conceito de funções. Funções são blocos de código que se propõe a realizar algum tipo de tarefa, podendo ser obtenção ou alteração de um valor específico ou um simples show.
 
@@ -55,7 +55,7 @@ helloWorld():
   show('Hello World');
 ```
 
-### Comentários
+### :pushpin: Comentários
 Comentários são importantes para indicar o que o trecho de código faz, documentação e outras, para comentar um código, basta colocar os simbolos // antes do comentário.
 
 #### Exemplo
