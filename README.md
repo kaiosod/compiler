@@ -24,6 +24,15 @@ numb -> Declara um numeral, podendo ser um numeral real ou inteiro
 ```js
 numb year = 2022
 ```
+
+### Exemplo
+
+boole -> representa o tipo boleano ou seja uma condição binaria que no caso da linguagem será true ou false.
+
+```js
+boole x = true
+boole y = false
+```
 ### Funções
 
 A linguagem apresenta o conceito de funções. Funções são blocos de código que se propõe a realizar algum tipo de tarefa, podendo ser obtenção ou alteração de um valor específico ou um simples show.
