@@ -6,14 +6,13 @@
 ### Idéia da criação
 Criação de uma linguagem para aprendizado que seja de fácil acesso no começo, e após isso dê ferramentas mais completas.
 
-## Características
-
-Linguagem tipada e estruturada, onde a mesma pode ter dois tipos de váriaveis e pode ser divida em pequenos blocos.
-
 ## Documentação
 
 A especificação da linguagem está documentada no wiki do GitHub
 
+## Características
+
+Linguagem tipada e estruturada, onde a mesma pode ter dois tipos de váriaveis e pode ser divida em pequenos blocos.
 
 ## Introdução rápida sobre a linguagem
 
