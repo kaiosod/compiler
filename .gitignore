@@ -127,3 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+checklist.todo
+test.py
+exemplo.txt
+tabela.txt

@@ -1,9 +1,10 @@
-from dis import disco
 from tkinter import *
 from tkinter import ttk
-import analyzer
+import compiler.analyzer as analyzer
 
 root = Tk()
+style = ttk.Style()
+style.theme_use('clam')
 
 root.geometry("700x400") 
 root.configure(background="#a0a0a0")
@@ -14,8 +15,16 @@ def getInput():
     inp = inputText.get(1.0, "end-1c")
     dict_return = analyzer.analisador(inp) 
 
+    table.delete(*table.get_children())
+    
     for dict_key in dict_return:
         table.insert('', END,values = [f'{dict_key}',dict_return[dict_key]],tag='')
+        
+
+
+def clearInput():  
+    for i in table.get_children():
+        table.delete(i)
 
     
 # root_label = Label(root, text="Analisador Lexico", font=15) 
@@ -27,8 +36,11 @@ inputText.place(x=5,y=5)
 # inp = inputText.get(1.0, "end-1c") 
 
 # Buttons
-button = Button(root, text = ' Start ',command = getInput)  
+button = ttk.Button(root, text = ' Start ',command = getInput)  
 button.place(x=430,y=350)  
+
+button = ttk.Button(root, text = ' Clear ',command = clearInput)  
+button.place(x=520,y=350)  
 
 #Table
 table = ttk.Treeview(root,column = ['column1','column2'],show = 'headings')

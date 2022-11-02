@@ -7,22 +7,24 @@ import re
 # Operador - + - / *
 # Palavra Reservada - show, lite, numb
 
-list_identifier = []
-list_operator= []
-list_keyWord = []
-
-dict_lex = {'Identifier':list_identifier,
-            'Operator':list_operator,
-            'Key World':list_keyWord}
 
 def analisador(inp):
     list_inp = inp.split('\n')
+
+    list_identifier = []
+    list_operator= []
+    list_keyWord = []
+
+    dict_lex = {'Identifier':list_identifier,
+                'Operator':list_operator,
+                'Key World':list_keyWord}
     
     for line in list_inp:
-        #Splitar por espaço e por operador 
+        
         # list_lexemas = line.split(' ')
-        list_lexemas = re.split("[+|\-|\/|*|\s]", line)
+        list_lexemas = re.split("\s", line)
         list_lexemas = list(filter(None, list_lexemas))
+        print(list_lexemas)
         
         for i in list_lexemas:
             if re.match('[A-Z]+|[a-z]+',i) != None:
