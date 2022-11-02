@@ -12,7 +12,7 @@ A especificação da linguagem está documentada no wiki do GitHub
 
 ## Características
 
-Linguagem tipada e estruturada, onde a mesma pode ter dois tipos de váriaveis e pode ser divida em pequenos blocos.
+**Linguagem tipada** e **estruturada**, onde a mesma pode ter dois tipos de váriaveis e pode ser divida em pequenos blocos.
 
 ## Introdução rápida sobre a linguagem
 
