@@ -14,6 +14,15 @@ Linguagem tipada e estruturada, onde a mesma pode ter dois tipos de váriaveis e
 
 A especificação da linguagem está documentada no wiki do GitHub
 
+
+## Introdução rápida sobre a linguagem
+
+### Hello World
+
+```js
+show('Hello World')
+```
+
 ### Tipagem
 
 liter -> Declara um conjunto de caracteres
@@ -55,5 +64,4 @@ Comentários são importantes para indicar o que o trecho de código faz, docume
 printName():
 //  show('Mali'); -> Trecho comentado
 ```
-## Hello World
-show('Hello World')
+
