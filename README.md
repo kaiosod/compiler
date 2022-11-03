@@ -54,6 +54,21 @@ A linguagem apresenta o conceito de funções. Funções são blocos de código 
 helloWorld():
   show('Hello World');
 ```
+### :pushpin: Palavras Reservadas
+A linguagem possui algumas palavras reservadas, que são palavras-chaves para usos de algumas funções;
+
+#### Alguns Exemplos
+```js
+numb
+liter
+boole
+if
+else
+true
+false
+null
+show
+```
 
 ### :pushpin: Comentários
 Comentários são importantes para indicar o que o trecho de código faz, documentação e outras, para comentar um código, basta colocar os simbolos // antes do comentário.
