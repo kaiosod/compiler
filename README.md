@@ -45,6 +45,72 @@ boole -> representa o tipo boleano ou seja uma condição binaria que no caso da
 boole x = true
 boole y = false
 ```
+### :pushpin: Estrutura de Decisão: Declaração Case, Orcase e Other
+
+Estruturas de decisão na lingugem Mali são usadas para verificar um comando e efetuar a decisão do mesmo. 
+No exemplo a seguir, a condição ficará dentro do case e se atender a condição, irá realizar os comandos dentro do bloco case, caso não atenda, irá realzar os comandos do bloco other:
+
+#### Exemplo
+
+```js
+case(x == 1){
+
+show('Atendeu o case')
+
+}other{
+
+show('Atendeu o other')
+
+}
+```
+
+Também pode ser usado somente o case, e caso não atenda as condições, não irá realizar os comandos dentro do bloco somente:
+
+#### Exemplo
+
+```js
+
+case(x == 1){
+
+show('Atendeu o case')
+
+}
+```
+
+Dentro da condição pode conter um boole:
+
+#### Exemplo
+
+```js
+boole condicao = true
+
+case(condicao){
+
+show('Atendeu o case')
+
+}
+```
+
+Caso precise de mais de uma condição, pode ser usado o orcase:
+
+#### Exemplo
+
+```js
+case(x == 1){
+
+show('Atendeu o case')
+
+}orcase(x == 2){
+
+show('Atendeu o orcase')
+
+}other{
+
+show('Atendeu o other')
+
+}
+```
+
 ### :pushpin: Funções
 
 A linguagem apresenta o conceito de funções. Funções são blocos de código que se propõe a realizar algum tipo de tarefa, podendo ser obtenção ou alteração de um valor específico ou um simples show.
