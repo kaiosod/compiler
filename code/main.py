@@ -1,6 +1,6 @@
 from tkinter import *
 from tkinter import ttk
-import compiler.analyzer as analyzer
+from Lexer import Lexer
 
 root = Tk()
 style = ttk.Style()
@@ -13,7 +13,8 @@ root.resizable(width=False, height=False)
 
 def getInput(): 
     inp = inputText.get(1.0, "end-1c")
-    dict_return = analyzer.analisador(inp) 
+    analyzer = Lexer(inp) 
+    dict_return = analyzer.identifier_tokens() 
 
     table.delete(*table.get_children())
     
