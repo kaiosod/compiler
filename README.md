@@ -134,6 +134,11 @@ true
 false
 null
 show
+doit
+loop
+case 
+orcase
+other
 ```
 
 ### :pushpin: Comentários
