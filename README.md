@@ -53,15 +53,15 @@ No exemplo a seguir, a condição ficará dentro do case e se atender a condiç�
 #### Exemplo
 
 ```js
-case(x == 1){
+case(x == 1):
 
-show('Atendeu o case')
+  show('Atendeu o case')
 
-}other{
+other:
 
-show('Atendeu o other')
+  show('Atendeu o other')
 
-}
+
 ```
 
 Também pode ser usado somente o case, e caso não atenda as condições, não irá realizar os comandos dentro do bloco somente:
@@ -70,11 +70,11 @@ Também pode ser usado somente o case, e caso não atenda as condições, não i
 
 ```js
 
-case(x == 1){
+case(x == 1)
 
-show('Atendeu o case')
+  show('Atendeu o case')
 
-}
+
 ```
 
 Dentro da condição pode conter um boole:
@@ -84,11 +84,10 @@ Dentro da condição pode conter um boole:
 ```js
 boole condicao = true
 
-case(condicao){
+case(condicao)
 
-show('Atendeu o case')
+  show('Atendeu o case')
 
-}
 ```
 
 Caso precise de mais de uma condição, pode ser usado o orcase:
@@ -96,19 +95,17 @@ Caso precise de mais de uma condição, pode ser usado o orcase:
 #### Exemplo
 
 ```js
-case(x == 1){
+case(x == 1):
 
-show('Atendeu o case')
+  show('Atendeu o case')
 
-}orcase(x == 2){
+orcase(x == 2):
 
-show('Atendeu o orcase')
+  show('Atendeu o orcase')
 
-}other{
+other:
 
-show('Atendeu o other')
-
-}
+  show('Atendeu o other')
 ```
 
 ### :pushpin: Funções
