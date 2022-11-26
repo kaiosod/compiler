@@ -17,6 +17,8 @@ class Lexer:
 
         list_inp = self.inp.split('\n')
 
+        self.var_count = self.count_var(list_inp)
+
         for line in list_inp:
 
             line = self.remove_comments(line)
@@ -46,7 +48,7 @@ class Lexer:
                 c = 0
 
                 if re.match('[A-Z]+|[a-z]+',i) != None:
-                    for j in ['numb','liter','boole','if','else','true','false','null','show','doit','loop','case','orcase','other','range','in']:
+                    for j in ['numb','liter','boole','true','false','null','show','doit','loop','case','orcase','other','range','in']:
                         if i == j:
                             c = 1
                             self.list_keyWord.append(i)
@@ -93,5 +95,26 @@ class Lexer:
         except:
             pass
         return out
+
+    def count_var(self,list_inp):
+        x = re.findall("[A-Z]+\s=|[a-z]+\s=|[a-z]+=|[A-Z]+=", str(list_inp))
+        return len(x)
+
+    def count_func(self,list_inp):
+        x = re.findall("[A-Z]+\s[(]|[a-z]+\s[(]|[a-z]+[(]|[A-Z]+[(]",str(list_inp))
+        
+        return len(x)
+
+    def count_line(self,line):
+        pass
+
+    def show_var(self):
+        return self.var_count
+
+    def show_func(self):
+        return self.count_func
+
+    def show_line(self):
+        return self.count_struct
 
 

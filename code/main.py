@@ -1,12 +1,17 @@
-from tkinter import *
-from tkinter import ttk
-from tkinter import messagebox
 import webbrowser
+from tkinter import *
+from tkinter import messagebox, ttk
+import tkinter.scrolledtext as st 
+from Interpreter import Interpreter
 from Lexer import Lexer
+import os
 
 root = Tk()
 style = ttk.Style()
 style.theme_use('clam')
+
+# colors
+backgroundColor = "#a0a0a0"
 
 style.configure("Treeview",
     background = "#D3D3D3",
@@ -18,40 +23,60 @@ style.configure("Treeview",
 style.map('Treeview',background=[('selected','blue')])
 
 root.geometry("900x500") 
-root.configure(background="#a0a0a0")
+root.configure(background=backgroundColor)
 root.title('Mali')
 root.resizable(width=False, height=False)
 
+#Box Text (INPUT)
+# inputText = Text(root,height = 30, width = 60,font=("Cascade Mono",10))
+# inputText.place(x=5,y=6)
 
+inputText = st.ScrolledText(root, width = 57, height = 30,font = ("Cascade Mono",10)) 
+inputText.grid(column = 0, pady = 7, padx = 7) 
+
+# Console (OUTPUT)
+
+outputText = st.ScrolledText(root, width = 62, height = 8,font = ("Cascade Mono",10)) 
+outputText.grid(column = 0, pady = 7, padx = 7) 
+outputText.place(x = 435, y= 360)
+
+# outputText.insert(END,conteudo)
+ 
 # Commands
 def getInput(): 
+
+    clearInput()
+    
+    try:
+        os.remove(f"code/temp/temp.py")
+    except:
+        pass
+
     inp = inputText.get(1.0, "end-1c")
-    analyzer = Lexer(inp) 
+    analyzer = Lexer(inp)
+    convert = Interpreter()
     dict_return = analyzer.identifier_tokens() 
 
+    outputText.insert(END,convert.compiler_code(inp))
+
+    var1.set(analyzer.show_func())
+    var2.set(analyzer.show_var())
+    
     table.delete(*table.get_children())
     
     for dict_key in dict_return:
         table.insert('', END,values = [f'{dict_key}',dict_return[dict_key]],tag='')
-        
 
-
+    
 def clearInput():  
     for i in table.get_children():
         table.delete(i)
 
+    outputText.delete("1.0", "end") 
+
 def showInfo():
     messagebox.showinfo(title='About', message='This is an IDE for Mali Language')
 
-
-    
-# root_label = Label(root, text="Analisador Lexico", font=15) 
-# root_label.place(x=390,y=300)
-
-#Box Text
-inputText = Text(root,height = 30, width = 60,font=("Cascade Mono",10))
-inputText.place(x=5,y=6)
-# inp = inputText.get(1.0, "end-1c") 
 
 # Menu Bar
 barMenu = Menu(root)
@@ -81,12 +106,10 @@ barMenu.add_cascade(label='Files',menu=menuFile)
 barMenu.add_cascade(label='Run',menu=menuRun)
 barMenu.add_cascade(label='Help',menu=menuHelp)
 
-
-
 root.config(menu=barMenu)
 
 # Buttons
-button = ttk.Button(root, text = 'Start',command = getInput)  
+button = ttk.Button(root, text = 'Run',command = getInput)  
 button.place(x=435,y=290)  
 
 button = ttk.Button(root, text = 'Clear',command = clearInput)  
@@ -103,6 +126,29 @@ table.heading('#2',text = 'Lexema')
 
 table.grid(row = 0, column=0)
 table.place(x=435,y=5)
+
+# Labels
+root_label = Label(root, text=f"Nº de Funções e Estruturas: ", background=backgroundColor) 
+root_label.place(x=530,y=290)
+
+root_label = Label(root, text=f"Nº de Variaveis: ", background=backgroundColor) 
+root_label.place(x=530,y=310)
+
+root_label = Label(root, text=f"Nº de Estruturas: ", background=backgroundColor) 
+root_label.place(x=530,y=330)
+
+var1 = StringVar()
+var2 = StringVar()
+var3 = StringVar()
+
+root_label = Label(root,textvariable = var1, background=backgroundColor)
+root_label.place(x=670,y=290)
+
+root_label = Label(root,textvariable = var2, background=backgroundColor)
+root_label.place(x=620,y=310)
+
+root_label = Label(root,textvariable = var3, background=backgroundColor)
+root_label.place(x=665,y=290)
 
  
 mainloop() 
