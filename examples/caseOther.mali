@@ -1,0 +1,13 @@
+numb x = 1
+
+case(x == 1):
+
+   show('Atendeu o case')
+
+orcase(x == 2):
+
+   show('Atendeu o orcase')
+
+other:
+
+   show('Atendeu o other')

@@ -1,6 +1,7 @@
 import re
 import subprocess as sp
-import os
+import tkinter
+
 
 # python -m black teste.py
 class Interpreter:
@@ -28,27 +29,38 @@ class Interpreter:
 
         code = newText
 
-        code = code.replace('numb','')
-        code = code.replace('liter','')
+        code = code.replace('numb ','')
+        # code = code.replace(' ','')
+        code = code.replace('liter ','')
         code = code.replace('boole ','')
         code = code.replace('show','print')
         code = code.replace('true','True')
         code = code.replace('false','False')
         code = code.replace('doit','for')
         code = code.replace('loop','while')
-        code = code.replace('^case$','if')
         code = code.replace('orcase','elif')
+        code = code.replace('case','if')
         code = code.replace('other','else')
 
+        print(code)
+
         #write code in python file
+        
         pythonFile = open(R"code\temp\temp.py", "a")
         pythonFile.write(code)
         pythonFile.close()
-
+ 
         # Run code and get output
         output = sp.getoutput(f'python {pythonFile.name}')
-        print(output)
+        
+        if "IndentationError:" in output:
+            tkinter.messagebox.showwarning(title = 'IndentationError',message = f'Seu código apresenta erro de indentação !')
+
+        elif "SyntaxError:" in output:
+            tkinter.messagebox.showwarning(title = 'SyntaxError:',message = f'Seu código apresenta erro de sintaxe !')
+
         
         return output
+
 
 

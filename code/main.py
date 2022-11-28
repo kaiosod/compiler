@@ -11,13 +11,15 @@ style = ttk.Style()
 style.theme_use('clam')
 
 # colors
-backgroundColor = "#a0a0a0"
+# #c2d6d6
+backgroundColor = "#E6E6E6"
+foregroundColor = "#FFFFFF"
 
 style.configure("Treeview",
-    background = "#D3D3D3",
+    background = foregroundColor,
     foreground = "black",
     rowheight =25,
-    fieldbackground = "#D3D3D3"
+    fieldbackground = foregroundColor
 )
 
 style.map('Treeview',background=[('selected','blue')])
@@ -28,15 +30,23 @@ root.title('Mali')
 root.resizable(width=False, height=False)
 
 #Box Text (INPUT)
-# inputText = Text(root,height = 30, width = 60,font=("Cascade Mono",10))
-# inputText.place(x=5,y=6)
 
-inputText = st.ScrolledText(root, width = 57, height = 30,font = ("Cascade Mono",10)) 
+inputText = st.ScrolledText(root, 
+                            width = 57, 
+                            height = 30,
+                            font = ("Cascade Mono",10),
+                            bg = foregroundColor,
+                            fg= "black") 
 inputText.grid(column = 0, pady = 7, padx = 7) 
 
 # Console (OUTPUT)
 
-outputText = st.ScrolledText(root, width = 62, height = 8,font = ("Cascade Mono",10)) 
+outputText = st.ScrolledText(root, 
+                            width = 62, 
+                            height = 8,
+                            font = ("Cascade Mono",10),
+                            bg = foregroundColor,
+                            fg = "black",) 
 outputText.grid(column = 0, pady = 7, padx = 7) 
 outputText.place(x = 435, y= 360)
 
@@ -57,15 +67,24 @@ def getInput():
     convert = Interpreter()
     dict_return = analyzer.identifier_tokens() 
 
+    counter = 0
+    inpList = inp.split("\n")
+
+    for i in inpList:
+        if i:
+            counter +=1 
+
     outputText.insert(END,convert.compiler_code(inp))
 
-    var1.set(analyzer.show_func())
-    var2.set(analyzer.show_var())
-    
     table.delete(*table.get_children())
-    
+    length = 0
     for dict_key in dict_return:
         table.insert('', END,values = [f'{dict_key}',dict_return[dict_key]],tag='')
+        length = length + len(dict_return[dict_key])
+    print(length)
+
+    var1.set(length)
+    var2.set(counter)
 
     
 def clearInput():  
@@ -79,7 +98,7 @@ def showInfo():
 
 
 # Menu Bar
-barMenu = Menu(root)
+barMenu = Menu(root,background=foregroundColor,fg=foregroundColor)
 
 # Menu Bar - Files
 menuFile = Menu(barMenu,tearoff=0)
@@ -116,7 +135,9 @@ button = ttk.Button(root, text = 'Clear',command = clearInput)
 button.place(x=435,y=325)  
 
 #Table
-table = ttk.Treeview(root,column = ['column1','column2'],show = 'headings')
+table = ttk.Treeview(root,
+                    column = ['column1','column2'],
+                    show = 'headings')
 
 table.column('column1',width=120)
 table.heading('#1',text = 'Token')
@@ -128,27 +149,31 @@ table.grid(row = 0, column=0)
 table.place(x=435,y=5)
 
 # Labels
-root_label = Label(root, text=f"Nº de Funções e Estruturas: ", background=backgroundColor) 
+# root_label = Label(root, text=f"Nº de Tokens: ", background=backgroundColor) 
+# root_label.place(x=530,y=290)
+
+root_label = Label(root, text=f"Mali 1.0", background=backgroundColor,font = ("Cascade Mono",9,"bold")) 
 root_label.place(x=530,y=290)
 
-root_label = Label(root, text=f"Nº de Variaveis: ", background=backgroundColor) 
+root_label = Label(root, text=f"Nº de Tokens: ", background=backgroundColor) 
 root_label.place(x=530,y=310)
 
-root_label = Label(root, text=f"Nº de Estruturas: ", background=backgroundColor) 
+root_label = Label(root, text=f"Nº de Linhas: ", background=backgroundColor) 
 root_label.place(x=530,y=330)
 
 var1 = StringVar()
 var2 = StringVar()
 var3 = StringVar()
 
+
+# root_label = Label(root,textvariable = var1, background=backgroundColor)
+# root_label.place(x=670,y=290)
+
 root_label = Label(root,textvariable = var1, background=backgroundColor)
-root_label.place(x=670,y=290)
+root_label.place(x=610,y=310)
 
 root_label = Label(root,textvariable = var2, background=backgroundColor)
-root_label.place(x=620,y=310)
-
-root_label = Label(root,textvariable = var3, background=backgroundColor)
-root_label.place(x=665,y=290)
+root_label.place(x=610,y=330)
 
  
 mainloop() 
